@@ -1,0 +1,14 @@
+
+<h1> Computer Chose {{ this.cpuChoice }} </h1>
+<h1> You Chose {{ this.playerChoice }} </h1>
+
+<h2> You {{ this.outcome }}</h2>
+
+
+
+<h1> Computer Score {{ this.cpuScore }} </h1>
+<h1> You Score {{ this.playerScore }} </h1>
+
+<button value="Rock" {{on 'click' this.userChoice}}> Rock </button>
+<button value="Paper" {{on 'click' this.userChoice}}> Paper </button>
+<button value="Scissors" {{on 'click' this.userChoice}}> Scissors </button>
