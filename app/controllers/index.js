@@ -4,34 +4,34 @@ import { tracked } from '@glimmer/tracking'
 
 export default class IndexController extends Controller {
 
-  @tracked playerChoice = ''
+  @tracked playerChoice
   @tracked cpuChoice
   @tracked outcome
 
-  @tracked cpuScore = 0 
+  @tracked cpuScore = 0
   @tracked playerScore = 0
 
-  computerGenerated(){
+  computerGenerated() {
     const choices = ['Rock', 'Paper', 'Scissors']
     const computer = Math.floor(Math.random() * choices.length)
     this.cpuChoice = choices[computer]
-    console.log(this.cpuChoice )
 
-    return this.cpuChoice 
+    return this.cpuChoice
   }
 
- async decideWinner() {
+  async decideWinner() {
     await this.computerGenerated()
-
-   let { playerChoice, cpuChoice } = this
+    let { playerChoice, cpuChoice } = this
 
     if (playerChoice === cpuChoice) {
       this.outcome = 'Draw'
     }
 
-    else if (playerChoice === 'Paper' && cpuChoice === 'Rock'
-      || playerChoice === 'Scissors' && cpuChoice === 'Paper' ||
-      playerChoice === 'Rock' && cpuChoice === 'Scissors') {
+    else if (
+      playerChoice === 'Paper' && cpuChoice === 'Rock' || 
+      playerChoice === 'Scissors' && cpuChoice === 'Paper' ||
+      playerChoice === 'Rock' && cpuChoice === 'Scissors'
+      ) {
       this.outcome = 'Win'
       this.playerScore++
     } else {
@@ -40,10 +40,17 @@ export default class IndexController extends Controller {
     }
   }
 
-  @action 
+  @action
   userChoice(e) {
     this.playerChoice = e.target.value
     this.decideWinner()
   }
+
+  @action
+  resetGame() {
+    this.cpuScore = 0;
+    this.playerScore = 0;
+  }
+
 
 }
