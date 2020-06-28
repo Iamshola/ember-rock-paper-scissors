@@ -50,6 +50,10 @@ export default class IndexController extends Controller {
   resetGame() {
     this.cpuScore = 0;
     this.playerScore = 0;
+    this.playerChoice = '';
+    this.cpuChoice = '';
+    this.outcome = ''
+
   }
 
 

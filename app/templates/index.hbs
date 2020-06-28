@@ -1,16 +1,22 @@
-
-<h1> Computer Chose {{ this.cpuChoice }} </h1>
-<h1> You Chose {{ this.playerChoice }} </h1>
-
-<h2> You {{ this.outcome }}</h2>
-
+<div className="container">
+  
+  <p> Computer Chose <span> {{ this.cpuChoice }} </span> </p>
+  <p> Computer Score {{ this.cpuScore }} </p>
 
 
-<h1> Computer Score {{ this.cpuScore }} </h1>
-<h1> You Score {{ this.playerScore }} </h1>
+  <p> You Chose <span> {{ this.playerChoice }} </span>  </p>
+  <p> You Score {{ this.playerScore }} </p>
 
-<button value="Rock" {{on 'click' this.userChoice}}> Rock </button>
-<button value="Paper" {{on 'click' this.userChoice}}> Paper </button>
-<button value="Scissors" {{on 'click' this.userChoice}}> Scissors </button>
+  <h2 class="result">{{ this.outcome }}</h2>
 
-<button {{on 'click' this.resetGame}}> Clear game </button>
+
+
+
+  <button value="Rock" {{on 'click' this.userChoice}}> Rock </button>
+  <button value="Paper" {{on 'click' this.userChoice}}> Paper </button>
+  <button value="Scissors" {{on 'click' this.userChoice}}> Scissors </button>
+
+  <button {{on 'click' this.resetGame}}> Clear game </button>
+
+</div>
+
